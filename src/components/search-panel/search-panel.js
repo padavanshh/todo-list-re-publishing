@@ -1,26 +1,49 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './search-panel.css';
 
-export default class SearchPanel extends React.Component {
+//  class SearchPanelf extends React.Component {
+//
+//     state = {
+//         term: ''
+//     };
+//
+//     onSearchChange = (e) => {
+//         const term = e.target.value;
+//         this.setState({term});
+//         this.props.onSearchChange(term)
+//     }
+//
+//     render() {
+//         return (
+//             <input type="text"
+//                    className="form-control search-input"
+//                    placeholder="Basic usage"
+//                    value={this.state.term}
+//                    onChange={this.onSearchChange}/>
+//         );
+//     }
+// };
 
-    state = {
-        term: ''
-    };
 
-    onSearchChange = (e) => {
-        const term = e.target.value;
-        this.setState({term});
-        this.props.onSearchChange(term)
+const SearchPanel = (props) => {
+
+    const [term, setTerm] = useState('')
+
+    const onSearchChange = (e) => {
+        const terma = e.target.value;
+        setTerm(terma);
+        props.onSearchChange(terma)
     }
 
-    render() {
+
         return (
             <input type="text"
                    className="form-control search-input"
-                   placeholder="type to search"
-                   value={this.state.term}
-                   onChange={this.onSearchChange}/>
+                   placeholder="Basic usage"
+                   value={term}
+                   onChange={onSearchChange}/>
         );
     }
-};
+
+export default SearchPanel;

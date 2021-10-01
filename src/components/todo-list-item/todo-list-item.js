@@ -9,11 +9,11 @@ export default class TodoListItem extends React.Component {
 
         let classNames = 'todo-list-item'
         if (done === true) {
-            classNames += 'done';
+            classNames += ' done';
         }
 
         if (important === true) {
-            classNames += 'important'
+            classNames += ' important'
         }
 
         return (
